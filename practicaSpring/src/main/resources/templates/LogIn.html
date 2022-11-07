@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogIn</title>
+</head>
+<body>
+
+  <h1>Log In</h1>
+  <form id="forms" method="post">
+
+    <table>
+      <tr>
+        <th>
+          <label for="name">name</label>
+          <input type="text" id="name">
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <label for="pass">Contraseña</label>
+          <input type="password" id="pass">
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <button class="btn btn-success" type="submit" id = "button">Login</button>
+        </th>
+      </tr>
+    </table>
+  </form>
+<script>
+  var actualUrl = location.href;
+  var fullUrl;
+  var form = document.getElementById("button");
+  form.onclick = function(e){
+    e.preventDefault();
+    var name = document.getElementById("name").value;
+    var pass = document.getElementById("pass").value;
+    if((!name == null && pss == null) && (actualUrl != fullUrl) ){
+      fullUrl = "LogIn".concat('/',name,'/',pass);
+    }
+    var fullUrl = "LogIn".concat('/',name,'/',pass);
+    console.log(fullUrl);
+    history.replaceState(null, "", fullUrl);
+  }
+ </script>
+</body>
+</html>
