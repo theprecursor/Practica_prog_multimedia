@@ -3,32 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Tabla Usuarios</title>
+    <style>
+        body{
+            background-color: #AEBFF5;
+        }
+        #div{
+            position: relative;
+            left: 40%;
+            top: 300px;
+
+
+        }
+        #titulo {
+            position: absolute;
+            left: 10%;
+            bottom: 60%;
+        }
+        #tabla{
+            position: absolute;
+            top:40%;
+            left: 5%;
+        }
+    </style>
 </head>
 <body>
-    <h1>TABLA USUARIOS</h1>
+    <div id = "div">
+        <h1 id = "titulo">TABLA USUARIOS</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Password</th>
-            <th>email</th>
-            <th></th>
-        </tr>
-        </thead>
+        <table id = "tabla">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>email</th>
+                <th></th>
+            </tr>
+            </thead>
 
-        <tbody>
-        <tr th:each="user : ${UsersData}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.passsword}"></td>
-            <td th:text="${user.email}"></td>
-            <td></td>
-        </tr>
-        
-        </tbody>
+            <tbody>
+            <tr th:each="user : ${UsersData}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.passsword}"></td>
+                <td th:text="${user.email}"></td>
+                <td></td>
+            </tr>
 
-    </table>
+            </tbody>
+
+        </table>
+    </div>
+
 </body>
 </html>

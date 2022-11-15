@@ -18,12 +18,6 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
-	/*
-	@RequestMapping(value = "/usuario/add", method = RequestMethod.POST)
-	private ResponseEntity<Boolean> saveUser(@RequestBody User user){
-		//boolean	saveUser = userservice.createUser(user);
-		//return ResponseEntity.ok(saveUser);
-	}*/
 
 	@GetMapping(value = "/nuevo")
 	public String nuevo() {
@@ -32,10 +26,11 @@ public class UserController {
 
 	@GetMapping(value = "/show")
 	public String show(Model model) {
-		List<User> users = userRepository.findAll();
 		model.addAttribute("UsersData", userRepository.findAll());
 		return "show";
 	}
+
+
 
 	@GetMapping(value = "/ChekIn")
 	public String chekIn(Model model) {
@@ -44,8 +39,8 @@ public class UserController {
 	}
 
 	@PostMapping("/ChekIn") //sirve para mapear solicitudes
-	public String crear(@ModelAttribute User user, RedirectAttributes redirectAttrs) {
-		userRepository.save(user); //Para persistir un contacto/almacenar
+	public String crear(User user) {
+		userRepository.save(user);                                                      //Para persistir un contacto/almacenar
 		return "redirect:/show";
 	}
 
@@ -67,8 +62,13 @@ public class UserController {
 	@PostMapping(value = "/LogIn")
 	public String postLogIn(){
 		//userRepository.finUser();
-		return "redirect:/";
+		return "redirect:/show";
 	}
+
+
+
+
+
 /* //Este Cacho de codigo era para hacer un login
 	@RequestMapping(value ="/LogIn/{email}/{password}", method=RequestMethod.GET)
 	public String logData(@PathVariable String email, @PathVariable String password){
